@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "npm-run-all --parallel lint runServer",
+    "start": "npm-run-all --parallel lint build",
     "lint": "eslint src/js/**/*.js",
-    "runServer": "http-server src"
+    "runServer": "http-server src",
+    "build": "babel-node src/js/buildScripts/build.js"
   },
   "repository": {
     "type": "git",
@@ -20,8 +21,16 @@
   },
   "homepage": "https://github.com/askeroff/rejection#readme",
   "devDependencies": {
+    "babel-cli": "^6.16.0",
+    "babel-core": "6.17.0",
+    "babel-loader": "6.2.5",
+    "babel-preset-es2015": "^6.24.0",
+    "babel-preset-latest": "6.16.0",
+    "babel-register": "6.16.3",
+    "chalk": "1.1.3",
     "eslint": "^3.17.1",
     "http-server": "^0.9.0",
-    "npm-run-all": "^4.0.2"
+    "npm-run-all": "^4.0.2",
+    "webpack": "^2.2.1"
   }
 }
