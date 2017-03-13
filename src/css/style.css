@@ -3,6 +3,56 @@
   padding: 0;
 }
 
+body {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333333;
+}
+
+.wrapper {
+  width: 80%;
+  margin: 10px auto 0 auto;
+}
+
 h1 {
-  color: red;
+  margin: 10px 0px;
+}
+
+p {
+  margin: 10px 0px;
+}
+
+.rejection-form {
+  width: 450px;
+  margin: 10px auto;
+}
+
+.question-input {
+  width: 300px;
+  height: 25px;
+  border: 1px solid #666;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.accepted-button, .rejected-button {
+  width: 150px;
+  text-align: center;
+  text-transform: uppercase;
+  margin-right: 5px;
+  background: #0e701a;
+  color: #fff;
+  padding: 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.rejected-button {
+  margin-left: 5px;
+  background: #d3376f;
+}
+
+.accepted-button:hover, .rejected-button:hover {
+  cursor: pointer;
 }
