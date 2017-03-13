@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint src/js/**/*.js"
+    "start": "npm-run-all --parallel lint runServer",
+    "lint": "eslint src/js/**/*.js",
+    "runServer": "http-server src"
   },
   "repository": {
     "type": "git",
@@ -18,6 +20,8 @@
   },
   "homepage": "https://github.com/askeroff/rejection#readme",
   "devDependencies": {
-    "eslint": "^3.17.1"
+    "eslint": "^3.17.1",
+    "http-server": "^0.9.0",
+    "npm-run-all": "^4.0.2"
   }
 }
