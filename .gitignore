@@ -1,0 +1,8 @@
+# Node Modules
+node_modules/
+
+# ToDO Files
+ToDo.txt
+
+#Some windows file
+*thumbs.db
