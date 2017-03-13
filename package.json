@@ -4,7 +4,8 @@
   "description": "A student project for [Learn JavaScript with Eric Elliott](https://ericelliottjs.com).",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint src/js/**/*.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/askeroff/rejection/issues"
   },
-  "homepage": "https://github.com/askeroff/rejection#readme"
+  "homepage": "https://github.com/askeroff/rejection#readme",
+  "devDependencies": {
+    "eslint": "^3.17.1"
+  }
 }
