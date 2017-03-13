@@ -24,8 +24,10 @@ p {
 }
 
 .rejection-form {
-  width: 450px;
-  margin: 10px auto;
+  width: 40%;
+  margin-top: 20px;
+  margin-right: 10px;
+  float: left;
 }
 
 .question-input {
@@ -55,4 +57,14 @@ p {
 
 .accepted-button:hover, .rejected-button:hover {
   cursor: pointer;
+}
+
+.about {
+  width: 55%;
+  float: left;
+  margin-top: 20px;
+}
+
+.clear{
+  clear: both;
 }
