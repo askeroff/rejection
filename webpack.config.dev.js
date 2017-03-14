@@ -40,6 +40,11 @@ module.exports = {
       {
         test: /\.css$/, 
         use: ['css-loader', 'style-loader']
+      },
+      {
+        test: /\.css$/,
+        //include: helpers.root('src', 'app'),
+        use: ['raw-loader']
       }
     ]
   },
