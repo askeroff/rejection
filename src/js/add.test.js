@@ -9,11 +9,9 @@ describe('Accepted/Rejected Buttons', () => {
 
     const input_first = global.document.createElement('input');
     const input_second = global.document.createElement('input');
-    input_first.value = 'test'; input_second.value = 'test';
+    input_first.value = ''; input_second.value = '';
 
-
-    
-    assert.equal(true, checkInputs(input_first, input_second));
+    assert.equal(false, checkInputs(input_first, input_second));
 
   });
 

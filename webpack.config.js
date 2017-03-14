@@ -42,11 +42,18 @@ module.exports = {
       {
         test: /\.css$/, 
         use: ExtractTextPlugin.extract({
-                use: 'css-loader'
-           })
+          fallback: "style-loader",
+          use: [{ loader: 'css-loader',
+                  options: {
+                    sourceMap: true,
+                    minimize: true
+                  } 
+                }]
+        })
       }
     ]
   },
+
 
   plugins: [
     new WebpackMd5Hash(),

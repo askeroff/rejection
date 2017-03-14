@@ -1,5 +1,8 @@
 export function checkInputs(first, second) {
-  return false;
+  if(first.value === '' && second.value === '') {
+    return false;
+  }
+  return true;
 }
 
 export default function add() {
