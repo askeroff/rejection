@@ -1,8 +1,8 @@
 export function checkInputs(first, second) {
-  if(first.value === '' && second.value === '') {
-    return false;
+  if(first.value.trim().length >= 3  && second.value.trim().length >= 3) {
+    return true;
   }
-  return true;
+  return false;
 }
 
 export default function add() {
