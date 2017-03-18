@@ -5,6 +5,19 @@ export function checkInputs(first, second) {
   return false;
 }
 
+export function checkScore(elem) {
+  if(elem.classList.contains('accepted-button')) {
+    return 1;
+  } else if(elem.classList.contains('rejected-button')) {
+    return 10;
+  }
+  return undefined;
+}
+
+export function prepareObjectForStorage(what, whom) {
+  return {};
+}
+
 function attachingEvents() {
   const addInputs = [].slice.call(document.querySelectorAll('.add'));
   addInputs.forEach((element) => {

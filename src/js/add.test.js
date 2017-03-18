@@ -1,8 +1,7 @@
 /* global beforeEach, describe, it, afterEach */
 
 import {assert} from 'chai';
-import {checkInputs} from './add';
-//import {addValue} from './add';
+import {checkInputs, checkScore, prepareObjectForStorage} from './add';
 
 
 describe('Accepted/Rejected Buttons', () => {
@@ -43,6 +42,28 @@ describe('Accepted/Rejected Buttons', () => {
     input_first.value = '    '; input_second.value = '  ';
 
     assert.equal(false, checkInputs(input_first, input_second), 'Inputs filled only with spaces should fail');
+
+  });
+
+  it('should give the right score for accepted and rejected buttons', () => {
+    const input_first = addElement('input');
+    const input_second = addElement('input');
+    input_first.className = 'accepted-button add';
+    input_second.className = 'rejected-button add';
+
+    assert.equal(1, checkScore(input_first), 'should give 1 for accepted');
+    assert.equal(10, checkScore(input_second), 'should give 10 for rejected');
+  });
+
+  it('should return a properly formatted object', () => {
+    const input_first = addElement('input');
+    const input_second = addElement('input');
+
+    input_first.value = 'A girl out'; input_second.value = 'My coworker';
+
+    const result = prepareObjectForStorage(input_first.value, input_second.value);
+
+    assert.isObject(result, "it is an object");
 
   });
 
