@@ -1,17 +1,18 @@
-/* global global, describe, it, chai */
+/* global beforeEach, describe, it, afterEach */
 
 import {assert} from 'chai';
 import {checkInputs} from './add';
+//import {addValue} from './add';
 
 
 describe('Accepted/Rejected Buttons', () => {
   let container;
-  beforeEach(function() {
+  beforeEach(() => {
     container = document.createElement('div');
     document.body.appendChild(container);
   });
     
-  afterEach(function() {
+  afterEach(() => {
     removeElement(container);
   });
 
@@ -22,7 +23,7 @@ describe('Accepted/Rejected Buttons', () => {
   }
 
   function removeElement(element) {
-      element.parentNode.removeChild(element);
+    element.parentNode.removeChild(element);
   }
 
   it('length of asked and askee input equals or is more than 3', () => {
@@ -41,8 +42,9 @@ describe('Accepted/Rejected Buttons', () => {
     // to make sure that just spaces won't pass
     input_first.value = '    '; input_second.value = '  ';
 
-    assert.equal(false, checkInputs(input_first, input_second), "Inputs filled only with spaces should fail");
+    assert.equal(false, checkInputs(input_first, input_second), 'Inputs filled only with spaces should fail');
 
   });
+
 });
 

@@ -9,3 +9,6 @@ ToDo.txt
 
 #Dist folder for now
 dist
+
+# npm debug files
+npm-debug.log.*

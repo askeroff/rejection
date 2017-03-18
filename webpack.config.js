@@ -36,11 +36,14 @@ module.exports = {
         loader: 'babel-loader',
 
         options: {
-          presets: ['es2015']
+          presets: ['es2015', 'latest']
         },
       },
       {
         test: /\.css$/, 
+        include: [
+          path.resolve(__dirname, 'src/css')
+        ],
         use: ExtractTextPlugin.extract({
           fallback: "style-loader",
           use: [{ loader: 'css-loader',
@@ -48,7 +51,7 @@ module.exports = {
                     sourceMap: true,
                     minimize: true
                   } 
-                }]
+          }]
         })
       }
     ]
@@ -57,7 +60,7 @@ module.exports = {
 
   plugins: [
     new WebpackMd5Hash(),
-    new ExtractTextPlugin('[name].[contenthash].css'),
+    new ExtractTextPlugin('css/[name].[contenthash].css'),
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       filename: 'index.html',
@@ -75,7 +78,9 @@ module.exports = {
       },
       inject: true
     }),
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.optimize.UglifyJsPlugin( {
+      sourceMap: true
+    })
   ],
 
   devServer: {

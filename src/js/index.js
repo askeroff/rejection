@@ -1,5 +1,8 @@
 import css from 'raw-loader!../css/style.css'; // eslint-disable-line no-unused-vars
+import {addEntry} from './add';
 
-export default function index() {
-  return 2;
-}
+(function() {
+  // our entry point. doesn't do much now, does it
+  addEntry();
+  return true;
+}());
