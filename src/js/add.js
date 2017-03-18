@@ -15,7 +15,22 @@ export function checkScore(elem) {
 }
 
 export function prepareObjectForStorage(what, whom) {
-  return {};
+  const obj = {
+    data: {
+      askedWhat: undefined,
+      askedWhom: undefined,
+      answer: undefined,
+      date: undefined,
+      points: 0
+    },
+    overallPoints: 0
+  };
+
+  obj.data.askedWhat = what;
+  obj.data.askedWhom = whom;
+
+
+  return obj;
 }
 
 function attachingEvents() {

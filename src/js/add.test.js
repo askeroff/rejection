@@ -58,12 +58,25 @@ describe('Accepted/Rejected Buttons', () => {
   it('should return a properly formatted object', () => {
     const input_first = addElement('input');
     const input_second = addElement('input');
-
     input_first.value = 'A girl out'; input_second.value = 'My coworker';
-
     const result = prepareObjectForStorage(input_first.value, input_second.value);
 
-    assert.isObject(result,'it is an object');
+    assert.isObject(result, 'it is an object');
+
+    assert.property(result, 'data', 'object has data property');
+
+    assert.property(result, 'overallPoints', 'object has points property');
+
+    assert.isObject(result.data, 'data property should be an object');
+
+    assert.property(result.data, 'askedWhat', 'result.data has askedWhat property');
+    assert.property(result.data, 'askedWhom', 'result.data has askedWhom property');
+    assert.property(result.data, 'answer', 'result.data has answer property');
+    assert.property(result.data, 'date', 'result.data has date property');
+    assert.property(result.data, 'points', 'result.data has points property');
+
+    assert.equal(input_first.value, result.data.askedWhat, 'askedWhat property equals first @param value');
+    assert.equal(input_second.value, result.data.askedWhom, 'askedWhat property equals second @param value');
 
   });
 
