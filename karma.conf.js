@@ -33,6 +33,13 @@ module.exports = function(config) {
     webpackPreprocessor: {
       configPath: './webpack.config.dev.js'
     },
+    
+    babelPreprocessor: {
+      options: {
+        presets: ['es2015'],
+        plugins: ["transform-remove-strict-mode"]
+      }
+    },
 
 
     // test results reporter to use

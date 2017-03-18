@@ -63,7 +63,7 @@ describe('Accepted/Rejected Buttons', () => {
 
     const result = prepareObjectForStorage(input_first.value, input_second.value);
 
-    assert.isObject(result, "it is an object");
+    assert.isObject(result,'it is an object');
 
   });
 
