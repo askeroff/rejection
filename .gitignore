@@ -12,3 +12,6 @@ dist
 
 # npm debug files
 npm-debug.log.*
+
+#Idea folder
+.idea/
