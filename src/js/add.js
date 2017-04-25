@@ -1,3 +1,6 @@
+const inputWhat = document.querySelector('.what');
+const inputWhom = document.querySelector('.whom');
+
 export function checkInputs(first, second) {
   if (first.value.trim().length >= 3 && second.value.trim().length >= 3) {
     return true;
@@ -14,7 +17,7 @@ export function checkScore(elem) {
   return undefined;
 }
 
-export function prepareObjectForStorage(what, whom) {
+export function prepareObjectForStorage(what, whom, answer) {
   const obj = {
     data: [],
     overallPoints: 0,
@@ -25,25 +28,28 @@ export function prepareObjectForStorage(what, whom) {
     askedWhom: undefined,
     answer: undefined,
     date: undefined,
-    points: 0,
   };
 
   objItem.askedWhat = what;
   objItem.askedWhom = whom;
+  objItem.answer = answer;
+  objItem.date = new Date();
 
   obj.data.push(objItem);
-  return obj;
+  return objItem;
 }
 
 function attachingEvents() {
   const addInputs = [].slice.call(document.querySelectorAll('.add'));
   addInputs.forEach((element) => {
     element.addEventListener('click', (event) => {
-      console.log(`You clicked me: ${event.target}`); // eslint-disable-line no-console
+      const score = checkScore(event.target);
+      prepareObjectForStorage(inputWhat.value, inputWhom.value, score);
       return true;
     });
   });
 }
+
 
 export function addEntry() {
   attachingEvents();

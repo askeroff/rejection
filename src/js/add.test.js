@@ -52,10 +52,32 @@ describe('Accepted/Rejected Buttons', () => {
   it('prepareObjectForStorage should return a properly formatted object', () => {
     const inputFirst = addElement('input');
     const inputSecond = addElement('input');
-    inputFirst.value = 'A girl out'; inputSecond.value = 'My coworker';
-    const result = prepareObjectForStorage(inputFirst.value, inputSecond.value);
+    const inputAccepted = addElement('input');
+    const inputRejected = addElement('input');
+    const today = new Date();
+
+    today.setHours(0, 0, 0, 0);
+    inputAccepted.className = 'accepted-button add';
+    inputRejected.className = 'rejected-button add';
+    inputFirst.value = 'A girl out';
+    inputSecond.value = 'My coworker';
+
+    const result = prepareObjectForStorage(inputFirst.value,
+                                           inputSecond.value,
+                                           checkScore(inputAccepted));
+    const negResult = prepareObjectForStorage(inputFirst.value,
+                                              inputSecond.value,
+                                              checkScore(inputRejected));
+
+    const resultDate = new Date(result.date);
+    resultDate.setHours(0, 0, 0, 0);
 
     assert.isObject(result, 'it is an object');
+    assert.equal(result.askedWhat, inputFirst.value, 'askedWhat corresponds to the value of the first argument');
+    assert.equal(result.askedWhom, inputSecond.value, 'askedWhom corresponds to the value of the second argument');
+    assert.equal(result.answer, 1, 'answer is 1 when accepted button is passed (clicked)');
+    assert.equal(negResult.answer, 10, 'answer is 10 when rejected button is passed (clicked)');
+    assert.equal(resultDate.getTime(), today.getTime(), 'object is created with today`s date');
   });
 });
 
