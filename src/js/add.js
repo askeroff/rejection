@@ -18,11 +18,6 @@ export function checkScore(elem) {
 }
 
 export function prepareObjectForStorage(what, whom, answer) {
-  const obj = {
-    data: [],
-    overallPoints: 0,
-  };
-
   const objItem = {
     askedWhat: undefined,
     askedWhom: undefined,
@@ -35,7 +30,6 @@ export function prepareObjectForStorage(what, whom, answer) {
   objItem.answer = answer;
   objItem.date = new Date();
 
-  obj.data.push(objItem);
   return objItem;
 }
 
