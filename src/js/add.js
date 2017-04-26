@@ -29,8 +29,17 @@ export function prepareObjectForStorage(what, whom, answer) {
   objItem.askedWhom = whom;
   objItem.answer = answer;
   objItem.date = new Date();
-
+  objItem.date.setHours(0, 0, 0, 0);
   return objItem;
+}
+
+export function addToStorage(obj, answer) {
+  const stateFromStorage = JSON.parse(localStorage.getItem('rejectionData'));
+  stateFromStorage.data.push(obj);
+  stateFromStorage.overAllPoints += answer;
+  const newObj = Object.assign({}, stateFromStorage);
+  localStorage.setItem('rejectionData', JSON.stringify(newObj));
+  return newObj;
 }
 
 function attachingEvents() {
@@ -38,7 +47,8 @@ function attachingEvents() {
   addInputs.forEach((element) => {
     element.addEventListener('click', (event) => {
       const score = checkScore(event.target);
-      prepareObjectForStorage(inputWhat.value, inputWhom.value, score);
+      const objForStorage = prepareObjectForStorage(inputWhat.value, inputWhom.value, score);
+      addToStorage(objForStorage, score);
       return true;
     });
   });

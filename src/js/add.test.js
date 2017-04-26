@@ -1,8 +1,8 @@
 /* global beforeEach, describe, it, afterEach */
 
 import { assert } from 'chai';
-import { checkInputs, checkScore, prepareObjectForStorage } from './add';
-
+import { checkInputs, checkScore, prepareObjectForStorage, addToStorage } from './add';
+import init from './init';
 
 describe('Accepted/Rejected Buttons', () => {
   let container;
@@ -78,6 +78,29 @@ describe('Accepted/Rejected Buttons', () => {
     assert.equal(result.answer, 1, 'answer is 1 when accepted button is passed (clicked)');
     assert.equal(negResult.answer, 10, 'answer is 10 when rejected button is passed (clicked)');
     assert.equal(resultDate.getTime(), today.getTime(), 'object is created with today`s date');
+  });
+
+  it('Adds prepareObjectForStorage to localStorage', () => {
+    init();
+    const inputFirst = addElement('input');
+    const inputSecond = addElement('input');
+    const inputAccepted = addElement('input');
+
+    inputAccepted.className = 'accepted-button add';
+    inputFirst.value = 'A girl out';
+    inputSecond.value = 'My coworker';
+    const oldState = JSON.parse(localStorage.getItem('rejectionData'));
+    const result = prepareObjectForStorage(inputFirst.value,
+                                           inputSecond.value,
+                                           checkScore(inputAccepted));
+
+    addToStorage(result, checkScore(inputAccepted));
+    const newState = JSON.parse(localStorage.getItem('rejectionData'));
+    assert.equal(JSON.stringify(newState.data[newState.data.length - 1]),
+    JSON.stringify(result), 'added value matches the last item in the data array');
+
+    assert.equal(newState.overAllPoints, oldState.overAllPoints + checkScore(inputAccepted), 
+     'overAllPoints should equal overAllPoints + score');
   });
 });
 
