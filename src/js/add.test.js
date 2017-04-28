@@ -99,7 +99,7 @@ describe('Accepted/Rejected Buttons', () => {
     assert.equal(JSON.stringify(newState.data[newState.data.length - 1]),
     JSON.stringify(result), 'added value matches the last item in the data array');
 
-    assert.equal(newState.overAllPoints, oldState.overAllPoints + checkScore(inputAccepted), 
+    assert.equal(newState.overAllPoints, oldState.overAllPoints + checkScore(inputAccepted),
      'overAllPoints should equal overAllPoints + score');
   });
 });

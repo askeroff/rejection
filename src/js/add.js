@@ -1,3 +1,5 @@
+import renderData from './view';
+
 const inputWhat = document.querySelector('.what');
 const inputWhom = document.querySelector('.whom');
 
@@ -49,6 +51,7 @@ function attachingEvents() {
       const score = checkScore(event.target);
       const objForStorage = prepareObjectForStorage(inputWhat.value, inputWhom.value, score);
       addToStorage(objForStorage, score);
+      renderData();
       return true;
     });
   });

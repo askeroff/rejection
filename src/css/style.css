@@ -68,3 +68,55 @@ p {
 .clear{
   clear: both;
 }
+
+.results li {
+  list-style: none;
+  border-bottom: 1px solid #888;
+  padding: 8px 6px;
+}
+
+.result {
+  color: #fff;
+  padding: 4px;
+}
+
+.result.rejected {
+  background: #6b0934;
+  
+}
+
+.result.accepted {
+  background: #006113;
+}
+
+span.whom {
+  font-weight: bold;
+}
+
+span.what {
+  font-style: italic;
+}
+
+span.whom::after {
+  content: ': ';
+}
+
+
+span.what::after {
+  content: ' - ';
+}
+
+span.date {
+  margin-left: 20px;
+  font-style: italic;
+}
+
+span.date::after {
+  content: ' )';
+}
+
+span.date::before {
+  content: '( ';
+}
+
+

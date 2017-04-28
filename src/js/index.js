@@ -4,7 +4,8 @@ import css from 'raw-loader!../css/style.css';
 
 import { addEntry } from './add';
 import init from './init';
+import renderData from './view';
 
 init();
 addEntry();
-
+renderData();
