@@ -29,6 +29,8 @@ describe('Rendering elements from localStorage', () => {
     const dataForStorage = prepareObjectForStorage('whatAsked', 'whomAsked', 10);
     addToStorage(dataForStorage, 10);
     const state = JSON.parse(localStorage.getItem('rejectionData'));
+    const spanScore = addElement('span');
+    spanScore.className = 'overall-score';
 
     const list = addElement('ul');
     list.className = 'results';
@@ -53,7 +55,10 @@ describe('Rendering elements from localStorage', () => {
 
     assert.equal(everyWhom, true, 'span.whom equals to the i-th object`s askedWhom property');
     assert.equal(everyWhat, true, 'span.what equals to the i-th object`s askedWhat property');
-    assert.equal(checkAnswer, true, 'span.answer renders accepted if answer.property is 1 or rejected otherwise');
+    assert.equal(spanScore.innerHTML, state.overAllPoints, 
+    'span.overall-score has correct data');
+
+    assert.equal()
   });
 });
 

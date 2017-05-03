@@ -20,6 +20,8 @@ export default function renderData() {
   resultsList.innerHTML = '';
   const fragment = document.createDocumentFragment();
 
+  document.querySelector('.overall-score').innerHTML = state.overAllPoints;
+
   state.data.forEach((item) => {
     const li = document.createElement('li');
     const whomSpan = document.createElement('span');
