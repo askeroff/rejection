@@ -137,3 +137,16 @@ span.date::before {
   font-weight: bold;
   padding-right: 20px;
 }
+
+.delete {
+  margin-left: 50px;
+  background: #af001c;
+  border: 1px solid #333;
+  color: #fff;
+  padding: 3px;
+  float: right;
+}
+
+.delete:hover {
+  cursor: pointer;
+}

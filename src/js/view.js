@@ -28,11 +28,15 @@ export default function renderData() {
     const whatSpan = document.createElement('span');
     const answerSpan = document.createElement('span');
     const dateSpan = document.createElement('span');
+    const deleteInput = document.createElement('input');
 
     whomSpan.classList.add('whom');
     whatSpan.classList.add('what');
     dateSpan.classList.add('date');
     answerSpan.classList.add('result');
+    deleteInput.setAttribute('type','button');
+    deleteInput.setAttribute('value','Delete');
+    deleteInput.classList.add('delete');
 
     if (item.answer === 1) {
       answerSpan.classList.add('accepted');
@@ -50,6 +54,7 @@ export default function renderData() {
     li.appendChild(whatSpan);
     li.appendChild(answerSpan);
     li.appendChild(dateSpan);
+    li.appendChild(deleteInput);
     fragment.appendChild(li);
   });
 
