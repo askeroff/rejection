@@ -89,18 +89,14 @@ describe('Accepted/Rejected Buttons', () => {
     inputAccepted.className = 'accepted-button add';
     inputFirst.value = 'A girl out';
     inputSecond.value = 'My coworker';
-    const oldState = JSON.parse(localStorage.getItem('rejectionData'));
     const result = prepareObjectForStorage(inputFirst.value,
                                            inputSecond.value,
                                            checkScore(inputAccepted));
 
-    addToStorage(result, checkScore(inputAccepted));
+    addToStorage(result);
     const newState = JSON.parse(localStorage.getItem('rejectionData'));
     assert.equal(JSON.stringify(newState.data[newState.data.length - 1]),
     JSON.stringify(result), 'added value matches the last item in the data array');
-
-    assert.equal(newState.overAllPoints, oldState.overAllPoints + checkScore(inputAccepted),
-     'overAllPoints should equal overAllPoints + score');
   });
 });
 

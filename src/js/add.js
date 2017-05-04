@@ -35,10 +35,9 @@ export function prepareObjectForStorage(what, whom, answer) {
   return objItem;
 }
 
-export function addToStorage(obj, answer) {
+export function addToStorage(obj) {
   const stateFromStorage = JSON.parse(localStorage.getItem('rejectionData'));
   stateFromStorage.data.push(obj);
-  stateFromStorage.overAllPoints += answer;
   const newObj = Object.assign({}, stateFromStorage);
   localStorage.setItem('rejectionData', JSON.stringify(newObj));
   return newObj;
@@ -50,7 +49,7 @@ function attachingEvents() {
     element.addEventListener('click', (event) => {
       const score = checkScore(event.target);
       const objForStorage = prepareObjectForStorage(inputWhat.value, inputWhom.value, score);
-      addToStorage(objForStorage, score);
+      addToStorage(objForStorage);
       renderData();
       return true;
     });

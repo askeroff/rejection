@@ -21,8 +21,7 @@ export default function renderData() {
   const resultsList = document.querySelector('.results');
   resultsList.innerHTML = '';
   const fragment = document.createDocumentFragment();
-
-  document.querySelector('.overall-score').innerHTML = state.overAllPoints;
+  let countPoints = 0;
 
   state.data.forEach((item, i) => {
     const li = document.createElement('li');
@@ -52,6 +51,8 @@ export default function renderData() {
       answerSpan.innerHTML = 'rejected';
     }
 
+    countPoints += item.answer;
+
     whomSpan.innerHTML = item.askedWhom;
     whatSpan.innerHTML = item.askedWhat;
     dateSpan.innerHTML = formatDate(item.date);
@@ -65,5 +66,6 @@ export default function renderData() {
   });
 
   resultsList.appendChild(fragment);
+  document.querySelector('.overall-score').innerHTML = countPoints;
   return true;
 }

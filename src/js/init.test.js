@@ -9,7 +9,6 @@ describe('Initializing app', () => {
     const stateFromStorage = JSON.parse(localStorage.getItem('rejectionData'));
     assert.isObject(stateFromStorage, 'it is an object');
     assert.property(stateFromStorage, 'data');
-    assert.property(stateFromStorage, 'overAllPoints');
     assert.isArray(stateFromStorage.data, 'object`s data property is an array');
   });
 });

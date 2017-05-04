@@ -35,7 +35,7 @@ module.exports = {
 
         options: {
           presets: ['es2015']
-        },
+        }
       },
       {
         test: /\.css$/, 
