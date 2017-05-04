@@ -1,3 +1,5 @@
+import deleteFromArray from './delete';
+
 function formatDate(date) {
   const d = new Date(date);
   let month = (d.getMonth() + 1).toString();
@@ -22,7 +24,7 @@ export default function renderData() {
 
   document.querySelector('.overall-score').innerHTML = state.overAllPoints;
 
-  state.data.forEach((item) => {
+  state.data.forEach((item, i) => {
     const li = document.createElement('li');
     const whomSpan = document.createElement('span');
     const whatSpan = document.createElement('span');
@@ -34,9 +36,13 @@ export default function renderData() {
     whatSpan.classList.add('what');
     dateSpan.classList.add('date');
     answerSpan.classList.add('result');
-    deleteInput.setAttribute('type','button');
-    deleteInput.setAttribute('value','Delete');
+
+    deleteInput.setAttribute('type', 'button');
+    deleteInput.setAttribute('value', 'Delete');
     deleteInput.classList.add('delete');
+    deleteInput.addEventListener('click', () => {
+      deleteFromArray(state.data, i);
+    });
 
     if (item.answer === 1) {
       answerSpan.classList.add('accepted');

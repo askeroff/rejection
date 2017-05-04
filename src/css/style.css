@@ -81,12 +81,12 @@ p {
 }
 
 .result.rejected {
-  background: #6b0934;
+  background: #9f0f17;
   
 }
 
 .result.accepted {
-  background: #006113;
+  background: #0e701a;
 }
 
 span.whom {

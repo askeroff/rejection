@@ -55,10 +55,9 @@ describe('Rendering elements from localStorage', () => {
 
     assert.equal(everyWhom, true, 'span.whom equals to the i-th object`s askedWhom property');
     assert.equal(everyWhat, true, 'span.what equals to the i-th object`s askedWhat property');
-    assert.equal(spanScore.innerHTML, state.overAllPoints, 
+    assert.equal(checkAnswer, true, 'span.result renders proper result (accepted/rejected)');
+    assert.equal(spanScore.innerHTML, state.overAllPoints,
     'span.overall-score has correct data');
-
-    assert.equal()
   });
 });
 
