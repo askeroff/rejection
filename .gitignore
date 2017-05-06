@@ -7,9 +7,6 @@ ToDo.txt
 #Some windows file
 *thumbs.db
 
-#Dist folder for now
-dist
-
 # npm debug files
 npm-debug.log.*
 
